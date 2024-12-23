@@ -1,0 +1,43 @@
+.tab {
+    display: none !important;
+}
+
+.tab-active {
+    display: block !important;
+}
+
+.bix-tab a {
+    /* Add your tab styling here */
+    padding: 10px 20px !important;
+    cursor: pointer !important;
+}
+
+.bix-tab.active a {
+    /* Active tab styling */
+    font-weight: bold !important;
+}
+
+/* Active state for filter buttons */
+.filter.active {
+    background-color: #111a24;
+    color: #fff !important;
+}
+
+/* Smooth transitions for filtering */
+.item {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Base styles for project cards */
+.bix-project-card {
+    transition: all 0.3s ease-in-out !important;
+}
+
+.project-image {
+    height: 300px !important; /* Fixed height for all project images */
+}
+
+.project-image img {
+    display: block;
+    margin: 0 auto;
+}
