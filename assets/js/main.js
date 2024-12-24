@@ -27,24 +27,33 @@
         });
     });
 
-    /* Mobile menu slider */
-    $('.navbar-toggler').on("click", function () {
-        $('.bix-sidebar-overlay').fadeIn();
-        $('.bix-mobile-menu').addClass("bix-menu-open");
-    });
+  /* Mobile menu slider */
+$('.navbar-toggler').on("click", function () {
+    $('.bix-sidebar-overlay').removeClass('hidden').fadeIn();
+    $('.bix-mobile-menu').removeClass('translate-x-[-100%]');
+});
 
-    $('.bix-sidebar-overlay, .bix-close').on("click", function () {
-        $('.bix-sidebar-overlay').fadeOut();
-        $('.bix-mobile-menu').removeClass("bix-menu-open");
+$('.bix-sidebar-overlay, .bix-close').on("click", function () {
+    $('.bix-sidebar-overlay').fadeOut(function() {
+        $(this).addClass('hidden');
     });
+    $('.bix-mobile-menu').addClass('translate-x-[-100%]');
+});
+/* Close menu when clicking menu items */
+$('.bix-menu .nav-item').on("click", function () {
+    $('.bix-sidebar-overlay').fadeOut(function() {
+        $(this).addClass('hidden');
+    });
+    $('.bix-mobile-menu').addClass('translate-x-[-100%]');
+});
 
     function ResponsiveMobilemsMenu() {
-        var $msNav = $(".bix-menu-content, .overlay-menu"),
+        let $msNav = $(".bix-menu-content, .overlay-menu"),
             $msNavSubMenu = $msNav.find(".sub-menu");
         $msNavSubMenu.parent().prepend('<span class="menu-toggle"></span>');
 
         $msNav.on("click", "li a, .menu-toggle", function (e) {
-            var $this = $(this);
+            let $this = $(this);
             if ($this.attr("href") === "#" || $this.hasClass("menu-toggle")) {
                 e.preventDefault();
                 if ($this.siblings("ul:visible").length) {
